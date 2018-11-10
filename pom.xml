@@ -66,6 +66,12 @@
             <artifactId>jackson-core</artifactId>
             <version>2.9.7</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.mastercard.api</groupId>
+            <artifactId>locations</artifactId>
+            <version>1.0.4</version>
+        </dependency>
     </dependencies>
 
     <build>
