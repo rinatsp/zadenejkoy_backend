@@ -41,7 +41,7 @@ public class ATM {
     }
 
     public enum Currency{
-        USR,
+        USD,
         EUR,
         RUB
     }
