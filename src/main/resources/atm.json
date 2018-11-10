@@ -1,0 +1,60 @@
+[
+  {
+    "city":"Saint-Petersburg",
+    "lat":59.938480,
+    "lon":30.312481,
+    "name":"SBERbANK"
+  },
+  {
+    "city":"Saint-Petersburg",
+    "lat":59.938480,
+    "lon":30.322481,
+    "name":"VTB"
+  },
+  {
+    "city":"Saint-Petersburg",
+    "lat":59.938480,
+    "lon":30.332481,
+    "name":"ALFABANK"
+  },
+  {
+  "city":"Saint-Petersburg",
+  "lat":59.938480,
+  "lon":30.342481,
+  "name":"SBERbANK"
+},
+  {
+    "city":"Saint-Petersburg",
+    "lat":59.948480,
+    "lon":30.322481,
+    "name":"SBERbANK"
+  },
+  {
+    "city":"Saint-Petersburg",
+    "lat":59.968480,
+    "lon":30.342481,
+    "name":"SBERbANK"
+  },
+  {
+    "city":"Saint-Petersburg",
+    "lat":59.978480,
+    "lon":30.392481,
+    "name":"SBERbANK"
+  },
+  {
+    "city":"Saint-Petersburg",
+    "lat":59.84124,
+    "lon":30.31445,
+    "name":"420BANK"
+  },{
+  "city":"Saint-Petersburg",
+  "lat":58.91348480,
+  "lon":30.31022481,
+  "name":"TSARBANK"
+},{
+  "city":"Saint-Petersburg",
+  "lat":59.135580,
+  "lon":31.31232481,
+  "name":"OLOLOBANK"
+}
+]
