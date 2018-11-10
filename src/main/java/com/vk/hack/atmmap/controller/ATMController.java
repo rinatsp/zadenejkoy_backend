@@ -34,4 +34,8 @@ public class ATMController {
         return service.getFiltered(bank, type, distance, lat, lon,currency,workFrom,workTill,workAround);
     }
 
+    @GetMapping("/banks")
+    public List<String> getBanks() {
+        return service.getBanks();
+    }
 }

@@ -14,29 +14,41 @@ import java.util.stream.Stream;
 
 @Service
 public class ATMServiceImpl implements ATMService {
+
     private static List<ATM> atms;
+    private static List<String> banks;
 
     @PostConstruct
     private void init() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         atms = mapper.readValue(getClass().getClassLoader().getResource("data.json"), new TypeReference<List<ATM>>() {
         });
+        banks = atms.stream()
+            .map(ATM::getBank)
+            .distinct()
+            .collect(Collectors.toList());
     }
 
 
     @Override
-    public List<ATM> getFiltered(String bank, ATM.Type type, Integer distance, Double lat, Double lon, ATM.Currency currency, Integer workFrom, Integer workTill, Boolean workAround) {
+    public List<ATM> getFiltered(String bank, ATM.Type type, Integer distance, Double lat, Double lon,
+                                 ATM.Currency currency, Integer workFrom, Integer workTill, Boolean workAround) {
 
         Stream<ATM> atmStream = atms.stream().filter(atm -> bank == null || atm.getBank().equalsIgnoreCase(bank))
-                .filter(atm -> type == null || atm.getType().equals(type))
-                .filter(atm -> distance == null || DistanceUtil.distance(lat, atm.getLat(), lon, atm.getLon()) <= distance)
-                .filter(atm -> currency == null || atm.getCurrency().equals(currency));
+            .filter(atm -> type == null || atm.getType().equals(type))
+            .filter(atm -> distance == null || DistanceUtil.distance(lat, atm.getLat(), lon, atm.getLon()) <= distance)
+            .filter(atm -> currency == null || atm.getCurrency().equals(currency));
         if (workAround) {
             return atmStream.filter(ATM::isAroundTheClock).collect(Collectors.toList());
         }
 
         return atmStream.filter(atm -> workFrom == null || atm.getWorkFrom() <= workFrom)
-                .filter(atm -> workTill == null || atm.getWorkTill() >= workTill)
-                .collect(Collectors.toList());
+            .filter(atm -> workTill == null || atm.getWorkTill() >= workTill)
+            .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> getBanks() {
+        return banks;
     }
 }
