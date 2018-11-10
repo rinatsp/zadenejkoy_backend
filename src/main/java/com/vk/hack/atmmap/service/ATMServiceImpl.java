@@ -38,7 +38,7 @@ public class ATMServiceImpl implements ATMService {
             .filter(atm -> type == null || atm.getType().equals(type))
             .filter(atm -> distance == null || DistanceUtil.distance(lat, atm.getLat(), lon, atm.getLon()) <= distance)
             .filter(atm -> currency == null || atm.getCurrency().equals(currency));
-        if (workAround) {
+        if (workAround != null && workAround) {
             return atmStream.filter(ATM::isAroundTheClock).collect(Collectors.toList());
         }
 
