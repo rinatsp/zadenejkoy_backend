@@ -24,9 +24,9 @@ public class ATMController {
     @GetMapping("/filter")
     public List<ATM> getFiltered(@RequestParam(value = "bank", required = false) String bank,
                                  @RequestParam(value = "type", required = false) ATM.Type type,
-                                 @RequestParam(value = "distance", required = false) Integer distance,
-                                 @RequestParam(value = "lat", required = false) Double lat,
-                                 @RequestParam(value = "lon", required = false) Double lon,
+                                 @RequestParam(value = "distance", required = false, defaultValue = "100") Integer distance,
+                                 @RequestParam(value = "lat") Double lat,
+                                 @RequestParam(value = "lon") Double lon,
                                  @RequestParam(value = "currency", required = false) ATM.Currency currency,
                                  @RequestParam(value = "workFrom", required = false)  Integer workFrom,
                                  @RequestParam(value = "workTill",required = false) Integer workTill,
