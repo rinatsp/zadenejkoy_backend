@@ -36,7 +36,7 @@ public class ATMServiceImpl implements ATMService {
 
         Stream<ATM> atmStream = atms.stream().filter(atm -> bank == null || atm.getBank().equalsIgnoreCase(bank))
             .filter(atm -> type == null || atm.getType().equals(type))
-            .filter(atm -> distance == null || DistanceUtil.distance(lat, atm.getLat(), lon, atm.getLon()) <= distance)
+            .filter(atm -> distance == null || DistanceUtil.distance(lat, lon, atm.getLat(), atm.getLon()) <= distance/1000.0)
             .filter(atm -> currency == null || atm.getCurrency().equals(currency));
         if (workAround != null && workAround) {
             return atmStream.filter(ATM::isAroundTheClock).collect(Collectors.toList());
